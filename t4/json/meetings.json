@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Week 4 Group Meeting",
+    "time" : "January 30th @ 11:00 AM",
+    "presentation": {
+      "author": ["Zane West", "Ralph Borcherds", "Rudy Ravelin"],
+      "topic": ["AJAX", "Local Storage", "CSS Class Properties"]
+    }
+  },
+  {
+    "name": "Week 5 Group Meeting",
+    "time" : "February 6th @ 11:00 AM",
+    "presentation": {
+      "author": ["Sophia Gannon", "Ralph Borcherds", "Shaela Sutton", "Eric Rybalkin"],
+      "topic": ["JavaScript Objects", "CSS Class Properties", "CSS3 Transitions and Animations", "JavaScript Events"]
+    }
+  },
+  {
+    "name": "Week 6 Group Meeting",
+    "time" : "February 13th @ 11:00 AM",
+    "presentation": {
+      "author": ["Zane West", "Sophia Gannon", "Ralph Borcherds"],
+      "topic": ["DOM", "CSS3 Transitions", "CSS Transforms"]
+    }
+  }
+]

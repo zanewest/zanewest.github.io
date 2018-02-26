@@ -1,0 +1,28 @@
+<head>
+    <script src='js/t05.js'></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Topic 5</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+<header id="head-text">CIT 261 Topic 5</header>
+<br>
+<div id="body-content">
+    <p>Enter in your customer's order information to save it into Local Storage.</p>
+    <form id="form" action="#" method="post">
+        <fieldset>
+            <legend>Order Info</legend>
+            <label><span>Name:</span><input id="name" type="text"></label>
+            <label><span>Phone:</span><input id="phoneNum" type="text"></label>
+            <label><span>E-mail:</span><input id="email" type="text"></label>
+            <label><span>Order #:</span><input id="orderNum" type="text"></label>
+            <label><span>Order Total:</span><input id="orderTotal" type="text"></label>
+        </fieldset>
+    </form>
+    <button type="button" onClick="saveOrder()">Submit</button>&nbsp;<button type="button" onClick="getOrderInfo()">View</button>&nbsp;<button type="button" onClick="clearItems()">Clear Orders</button>
+    <p>&nbsp;</p>
+    <div id="userOutput"></div>
+</div>
+<div class="footer" style="text-align: center">Copyright Zane West</div>
+</body>
