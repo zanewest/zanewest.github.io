@@ -7,6 +7,15 @@ body {
     display: none;
 }
 
+.body-content {
+    background-color: white;
+    max-width:700px;
+    margin: auto;
+    min-height: 75px;
+    border-radius: 25px;
+    padding: 20px;
+}
+
 #body-content {
     background-color: white;
     max-width:700px;
@@ -140,15 +149,6 @@ input[type=text], select {
   box-shadow: 0px 1px 0px 0px;
 }
 
-.blue {
-  background-color: #55acee;
-  box-shadow: 0px 5px 0px 0px #3C93D5;
-}
-
-.blue:hover {
-  background-color: #6FC6FF;
-}
-
 .green {
   background-color: #2ecc71;
   box-shadow: 0px 5px 0px 0px #15B358;
@@ -165,31 +165,4 @@ input[type=text], select {
 
 .red:hover {
   background-color: #FF6656;
-}
-
-.purple {
-  background-color: #9b59b6;
-  box-shadow: 0px 5px 0px 0px #82409D;
-}
-
-.purple:hover {
-  background-color: #B573D0;
-}
-
-.orange {
-  background-color: #e67e22;
-  box-shadow: 0px 5px 0px 0px #CD6509;
-}
-
-.orange:hover {
-  background-color: #FF983C;
-}
-
-.yellow {
-  background-color: #f1c40f;
-  box-shadow: 0px 5px 0px 0px #D8AB00;
-}
-
-.yellow:hover {
-  background-color: #FFDE29;
 }
