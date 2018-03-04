@@ -1,0 +1,191 @@
+.crossElecGuit{
+    -webkit-animation:crossElecGuit 1s ease-in-out forwards;
+    -moz-animation:crossElecGuit 1s ease-in-out 1;
+    animation:crossElecGuit 1s ease-in-out forwards;
+}
+
+@-moz-keyframes crossElecGuit { 100% { -moz-transform: rotate(45deg); } }
+@-webkit-keyframes crossElecGuit { 100% { -webkit-transform: rotate(45deg); } }
+@keyframes crossElecGuit { 100% { -webkit-transform: rotate(45deg); transform:rotate(45deg); } }
+
+.crossAcouGuit{
+    -webkit-animation:crossAcouGuit 1s ease-in-out 1;
+    -moz-animation:crossAcouGuit 1s ease-in-out 1;
+    animation:crossAcouGuit 1s ease-in-out forwards;
+}
+
+@-moz-keyframes crossAcouGuit { 100% { -moz-transform: rotate(-45deg); } }
+@-webkit-keyframes crossAcouGuit { 100% { -webkit-transform: rotate(-45deg); } }
+@keyframes crossAcouGuit { 100% { -webkit-transform: rotate(-45deg); transform:rotate(-45deg); } }
+
+.itemRow{
+    margin: auto;
+    display: block;
+    max-width:740px;
+}
+
+.shopTxt{
+    text-align: center;
+}
+
+.shopImg{
+    margin: auto;
+    display: block;
+    padding: 5px;
+}
+
+img{
+    border-radius: 25px;
+}
+/* entire container, keeps perspective */
+.flip-container {
+    perspective: 1000px;
+    display: inline-block;
+    margin-right: 11%;
+    margin-bottom: 15px;
+
+}
+#triangle-container{
+    margin-right: 0%;
+}
+
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+    width: 186px;
+    height: 200px;
+}
+
+/* flip speed goes here */
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    border-radius: 25px;
+}
+
+/* front pane, placed above back */
+.front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);
+
+}
+
+
+#closeDiv{
+    transition: height 1s ease-in-out;
+    -webkit-transition: height 1s ease-in-out;
+    height: 250px;
+}
+
+input[type="text"] {
+    width: 220px;
+    padding: 10px;
+    border: none;
+    transition: 500ms ease-in-out;
+    background-color: white;
+    outline: #b6ffad
+}
+
+input#firstName:focus {
+    width: 250px;
+    background-color: #AFFF9D;
+}
+
+input#lastName:focus {
+    width: 250px;
+    background-color: #AFFF9D;
+}
+
+input#email:focus {
+    width: 250px;
+    background-color: #AFFF9D;
+}
+
+input[type=button] {
+    width: 150px;
+    transition: 300ms ease-in-out;
+    outline: none;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    display: block;
+    margin: auto;
+}
+
+input[type=button]:hover {
+    background-color: #AFFF9D;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+.example:hover {
+    background-color: #e0e0e0;
+    color: black;
+}
+
+
+@keyframes wiggle {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    15% {
+        transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg);
+    }
+
+    30% {
+        transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+    }
+
+    45% {
+        transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg);
+    }
+
+    60% {
+        transform: translate3d(5%, 0, 0) rotate3d(0, 0, 1, 1deg);
+    }
+
+    75% {
+        transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.wiggle {
+    animation-name: wiggle;
+    -webkit-animation:wiggle 1s ease-in-out forwards;
+    -moz-animation:wiggle 1s ease-in-out 1;
+    animation:wiggle 1s ease-in-out forwards;
+
+}
+
+.invalid{
+    background-color: red;
+}
+
+.firstName.invalid{
+    transition: background-color 1s;
+}

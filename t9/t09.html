@@ -1,0 +1,91 @@
+<head>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="animation.css">
+    <script type="text/javascript" src="scripts.js"></script>
+
+</head>
+
+<body <!--onload="loadedConfirm()"-->
+<header id="head-text">The Music Store</header>
+<br>
+<div id="body-content2">
+    <h1 style="text-align: center;">The Greatest Selection</h1>
+    <span style="display:table; margin: 0 auto;">
+        <img src="electricguitar.png" alt="Electric Guitar" id="elecGuit" height="200" width="66"
+             onmouseover="crossGuitars();" style="margin-right: 60px;">
+        <img src="acousticguitar.png" alt="Acoustic Guitar" id="acouGuit" height="200" width="66"
+              onmouseover="crossGuitars()" style="margin-left: 60px;">
+    </span>
+</div>
+
+<br>
+
+<div class="itemRow">
+    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+            <div class="front">
+                <!-- front content -->
+                <img class="shopImg" src="keyboard.png" alt="Acoustic Guitar" height="100" width="166">
+                <p class="shopTxt">An excellent keyboard.</p>
+                <p class="shopTxt">$1099.99</p>
+            </div>
+            <div class="back">
+                <!-- back content -->
+                <p class="shopTxt">Out of Stock</p>
+            </div>
+        </div>
+    </div>
+    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+            <div class="front">
+                <!-- front content -->
+                <img class="shopImg" src="accordion.png" alt="Accordion" height="100" width="166">
+                <p class="shopTxt">An excellent accordion.</p>
+                <p class="shopTxt">$1399.99</p>
+            </div>
+            <div class="back">
+                <!-- back content -->
+                <p class="shopTxt">Out of Stock</p>
+            </div>
+        </div>
+    </div>
+    <div class="flip-container" id="triangle-container" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+            <div class="front">
+                <!-- front content -->
+                <img class="shopImg" src="triangle.png" alt="Triangle" height="100" width="100">
+                <p class="shopTxt">An excellent triangle.</p>
+                <p class="shopTxt">$2399.99</p>
+            </div>
+            <div class="back">
+                <!-- back content -->
+                <p class="shopTxt">Out of Stock</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="closeDiv" class="body-content" >
+    <form id="preorderForm" action="" method="post">
+        <fieldset>
+            <legend>Pre-order your instrument</legend>
+            <input type="text" name="fname" id="firstName" placeholder="First Name" \><br \>
+            <input type="text" name="lname" id="lastName" placeholder="Last Name" \><br \>
+            <input type="text" name="email" id="email" placeholder="Email" \>
+        </fieldset>
+        <br \>
+        <input type="button" class="example" value="Submit" onclick="closeForm();"></button>
+    </form>
+    <p id="thanksMsg"></p>
+</div>
+
+<div>
+    <br>
+    <br>
+    <br>
+  <br>
+</div>
+
+
+<div class="footer" style="text-align: center">Copyright Zane West</div>
+</body>
