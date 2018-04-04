@@ -37,6 +37,10 @@ function setup() {
         }
     }
 
+    //animate header
+    var header = document.getElementById("mainHeader");
+    header.classList.toggle("bounceDown");
+
 }
 
 
@@ -88,8 +92,6 @@ function userCall(){
 
     };
 
-    //set the user selected cryptocurrent name
-
 
     AJAX.send(); //This performs the commands
 
@@ -109,10 +111,6 @@ function userClear(){
     window.localStorage.clear();
 
 }
-
-
-
-
 
 
 
@@ -147,9 +145,6 @@ function DOMManip() {
     introduction.appendChild(introText);
     heading.insertBefore(introduction, showVideoBtn);
 }
-
-
-
 
 
 

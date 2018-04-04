@@ -19,19 +19,17 @@
 </head>
 <body onload="setup()">
 
-<h1>Crypto Index</h1>
+<h1 id="mainHeader">Crypto Index</h1>
 <br>
-<br>
-
 <p>Enter a cryptocurrency symbol (BTC, ETH, etc...) for stats:</p>
 <input type="text" id="userSym" required maxlength="3">
 <input type="button" value="Submit" id="userSym_btn" onclick="userCall()">
 <input type="button" value="Clear" id="userClr_btn" onclick="userClear()">
 
 
-<div class="usrSymData" id="userSymDiv">
+<div class="usrSymData" id="userSymDiv" >
     <div class="utable-item" id="userTR">
-        <div class="item">
+        <div class="item" style="overflow-x: auto; white-space:nowrap;" >
             <table id="table">
                 <thead>
                 <tr>
