@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="title" content="Crypto Index" />
+    <meta name="description" content="The State of the Crypto Market" />
+    <meta name="abstract" content="The State of the Crypto Market" />
+    <meta name="keywords" content="crypto, index" />
+    <meta name="author" content="Zane West" />
+    <meta name="revisit-after" content="15" />
+    <meta name="copyright" content="© 2018 Zane west" />
+    <meta name="robots" content="All" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="scripts.js">
+    </script>
+</head>
+<body onload="setup()">
+
+<h1>Crypto Index</h1>
+<br>
+<br>
+
+<p>Enter a cryptocurrency symbol (BTC, ETH, etc...) for stats:</p>
+<input type="text" id="userSym" required maxlength="3">
+<input type="button" value="Submit" id="userSym_btn" onclick="userCall()">
+<input type="button" value="Clear" id="userClr_btn" onclick="userClear()">
+
+
+<div class="usrSymData" id="userSymDiv">
+    <div class="utable-item" id="userTR">
+        <div class="item">
+            <table id="table">
+                <thead>
+                <tr>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        Price
+                    </td>
+                    <td>
+                        Market cap
+                    </td>
+                    <td>
+                        Change (day)
+                    </td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+
+                        <span class="curr-name" id ="userCCName">UserCoin</span>
+                    </td>
+                    <td class="price" id="userPrice">0000</td>
+                    <td class="market-cap" id="userMktCap">0000</td>
+                    <td class="24-hours-change" id="userDayChng">
+                    <span class="decline">
+                        00000
+                    </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<div class="table-item" >
+    <div class="item">
+        <table>
+            <thead>
+            <tr>
+                <td>
+                    #
+                </td>
+                <td>
+                    Name
+                </td>
+                <td>
+                    Price
+                </td>
+                <td>
+                    Market cap
+                </td>
+                <td>
+                    Change (day)
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    <div class="icone-table">
+                        <img src="https://cci30.com/wp-content/themes/cci30_theme/img/icons/bitcoin.png" alt="BTC">
+                    </div>
+                    <span class="curr-name">Bitcoin</span>
+                </td>
+                <td class="price" id="btcPrice">a</td>
+                <td class="market-cap" id="btcMktCap"></td>
+                <td class="24-hours-change" id="btcDayChng">-3.15%</td>
+            </tr>
+
+            <tr>
+                <td>
+                    2
+                </td>
+                <td>
+                    <div class="icone-table">
+                        <img src="https://cci30.com/wp-content/themes/cci30_theme/img/icons/ethereum.png" alt="ETH">
+                    </div>
+                    <span class="curr-name">Ethereum</span>
+                </td>
+                <td class="price" id="ethPrice">
+                    $458.27
+                </td>
+                <td class="market-cap" id="ethMktCap">
+                    $45,114,986,076
+                </td>
+                <td class="24-hours-change" id="ethDayChng">-6.91%</td>
+            </tr>
+
+            <tr>
+                <td>
+                    3
+                </td>
+                <td>
+                    <div class="icone-table">
+                        <img src="https://cci30.com/wp-content/themes/cci30_theme/img/icons/ripple.png" alt="XRP">
+                    </div>
+                    <span class="curr-name">Ripple</span>
+                </td>
+                <td class="price" id="xrpPrice">
+                    $0.58
+                </td>
+                <td class="market-cap" id="xrpMktCap">
+                    $22,649,670,622
+                </td>
+                <td class="24-hours-change" id="xrpDayChng">-3.47%</td>
+            </tr>
+
+            <tr>
+                <td>
+                    4
+                </td>
+                <td>
+                    <div class="icone-table">
+                        <img src="https://cci30.com/wp-content/themes/cci30_theme/img/icons/bitcoin-cash.png" alt="BCH">
+                    </div>
+                    <span class="curr-name">Bitcoin Cash</span>
+                </td>
+                <td class="price" id="bchPrice">
+                    $900.38
+                </td>
+                <td class="market-cap" id="bchMktCap">
+                    $15,342,931,176
+                </td>
+                <td class="24-hours-change" id="bchDayChng">
+														<span class="decline">
+															-2.10%
+														</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    5
+                </td>
+                <td>
+                    <div class="icone-table">
+                        <img src="https://cci30.com/wp-content/themes/cci30_theme/img/icons/litecoin.png" alt="LTC">
+                    </div>
+                    <span class="curr-name">Litecoin</span>
+                </td>
+                <td class="price" id="ltcPrice">
+                    $140.58
+                </td>
+                <td class="market-cap" id="ltcMktCap">
+                    $7,845,697,337
+                </td>
+                <td class="24-hours-change" id="ltcDayChng">
+														<span class="decline">
+															-6.15%
+														</span>
+                </td>
+            </tr>
+
+            <thead>
+            <tr>
+                <td>
+                    #
+                </td>
+                <td>
+                    Name
+                </td>
+                <td>
+                    Price
+                </td>
+                <td>
+                    Market cap
+                </td>
+                <td>
+                    Change (day)
+                </td>
+            </tr>
+            </thead>
+
+            <tr id="align-table">
+                <td>
+                    6
+                </td>
+                <td>
+                    <div class="icone-table">
+                        <img src="https://cci30.com/wp-content/themes/cci30_theme/img/icons/eos.png" alt="EOS">
+                    </div>
+                    <span class="curr-name">EOS</span>
+                </td>
+                <td class="price" id="eosPrice">
+                    $5.64
+                </td>
+                <td class="market-cap" id="eosMktCap">
+                    $4,253,184,444
+                </td>
+                <td class="24-hours-change" id="eosDayChng">
+														<span class="decline">
+															-4.71%
+														</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    7
+                </td>
+                <td>
+                    <div class="icone-table">
+                        <img src="https://cci30.com/wp-content/themes/cci30_theme/img/icons/cardano.png" alt="ADA">
+                    </div>
+                    <span class="curr-name">Cardano</span>
+                </td>
+                <td class="price" id="adaPrice">
+                    $0.16
+                </td>
+                <td class="market-cap" id="adaMktCap">
+                    $4,042,108,078
+                </td>
+                <td class="24-hours-change" id="adaDayChng">
+														<span class="decline">
+															-7.63%
+														</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    8
+                </td>
+                <td>
+                    <div class="icone-table">
+                        <img src="https://cci30.com/wp-content/themes/cci30_theme/img/icons/stellar.png" alt="XLM">
+                    </div>
+                    <span class="curr-name">Stellar</span>
+                </td>
+                <td class="price" id="xlmPrice">
+                    $0.22
+                </td>
+                <td class="market-cap" id="xlmMktCap">
+                    $4,004,590,439
+                </td>
+                <td class="24-hours-change" id="xlmDayChng">
+														<span class="decline">
+															-6.02%
+														</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    9
+                </td>
+                <td>
+                    <div class="icone-table">
+                        <img src="https://cci30.com/wp-content/themes/cci30_theme/img/icons/neo.png" alt="NEO">
+                    </div>
+                    <span class="curr-name">NEO</span>
+                </td>
+                <td class="price" id="neoPrice">
+                    $55.50
+                </td>
+                <td class="market-cap" id="neoMktCap">
+                    $3,607,805,500
+                </td>
+                <td class="24-hours-change" id="neoDayChng">
+														<span class="decline">
+															-7.62%
+														</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    10
+                </td>
+                <td>
+                    <div class="icone-table">
+                        <img src="https://cci30.com/wp-content/themes/cci30_theme/img/icons/iota.png" alt="MIOTA">
+                    </div>
+                    <span class="curr-name">IOTA</span>
+                </td>
+                <td class="price" id="iotPrice">
+                    $1.18
+                </td>
+                <td class="market-cap" id="iotMktCap">
+                    $3,276,816,046
+                </td>
+                <td class="24-hours-change" id="iotDayChng">
+														<span class="decline">
+															-4.89%
+														</span>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div></div>
+
+<div class="footer" style="text-align: center">Copyright Zane West</div>
+</body>
+</html>
+

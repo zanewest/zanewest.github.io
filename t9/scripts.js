@@ -18,16 +18,15 @@ function closeForm(){
 
 
     //checks for form validation
-    var x = document.forms["preorderForm"]["fname"].value;
-    var y = document.forms["preorderForm"]["lname"].value;
-    var z = document.forms["preorderForm"]["email"].value;
+    var fname = document.forms["preorderForm"]["fname"].value;
+    var lname = document.forms["preorderForm"]["lname"].value;
+    var email = document.forms["preorderForm"]["email"].value;
 
     var fname = document.getElementById("firstName");
     var lname = document.getElementById("lastName");
     var email = document.getElementById("email");
 
-    if (x == "") {
-        console.log("name must be filled out.")
+    if (fname == "") {
         form.classList.toggle("wiggle");
 
         email.style.background = 'white';
@@ -35,15 +34,13 @@ function closeForm(){
         fname.style.background = '#FF7C76';
 
         return false;
-    } else if (y == "") {
-        console.log("name must be filled out.")
+    } else if (lname == "") {
         form.classList.toggle("wiggle");
 
         email.style.background = 'white';
         fname.style.background = 'white';
         lname.style.background = '#FF7C76';
-    } else if (z == "") {
-        console.log("name must be filled out.")
+    } else if (email == "") {
         form.classList.toggle("wiggle");
 
         lname.style.background = 'white';

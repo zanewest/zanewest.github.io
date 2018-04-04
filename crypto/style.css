@@ -1,0 +1,210 @@
+body {
+    background-image: url("resources/back.png");
+}
+
+.table-item {
+    column-count:2;
+    -moz-column-count:2;
+    -webkit-column-count:2;
+    width: 60%;
+    margin-bottom: 30px;
+    margin: auto;
+    min-width: 1000px;
+}
+
+.utable-item {
+    min-width: 1000px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+
+.usrSymData {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    padding: 15px;
+
+
+
+}
+
+#userSymDiv{
+    width: 20%;
+    height: 0px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 1s linear, height 1s ease-in-out;
+}
+
+
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+thead {
+    text-align: center;
+}
+
+th, td {
+    padding-top: 11px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    border-bottom: 1px solid #ddd;
+
+}
+
+.icone-table {
+    width: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    top: -2px;
+    margin-right: 0px;
+}
+
+h1 {
+    text-align: center;
+}
+
+body {
+    text-align: center;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+    -webkit-transition: background-color 500ms ease-in-out; /* Safari */
+    transition: background-color 500ms ease-in-out;
+}
+
+tr:hover {
+    background-color: #48E68B;
+    border-color: black;
+}
+
+td {
+    -webkit-transition: background-color 500ms ease-in-out; /* Safari */
+    transition: background-color 500ms ease-in-out;
+}
+
+td:hover {
+    background-color: #6fe1e6;
+    border-color: #6fe1e6;
+}
+
+
+
+[class="24-hours-change"]{
+       -webkit-transition: color 2s ease-in-out; /* Safari */
+       transition: color 2s ease-in-out;
+   }
+
+
+table {
+    border-collapse: collapse;
+}
+
+input[type="text"] {
+    width: 220px;
+    padding: 10px;
+    border: none;
+    transition: 500ms ease-in-out;
+    background-color: white;
+    outline: #b6ffad
+}
+
+
+input[type=text], select {
+    width: 8%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+input#userSym:focus {
+    width: 10%;
+    background-color: #AFFF9D;
+}
+
+input[type=button] {
+    width: 8%;
+    height: 30px;
+    transition: 300ms ease-in-out;
+    outline: none;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    display: block;
+    margin: auto;
+}
+
+input[type=button]:hover {
+    background-color: #AFFF9D;
+    cursor: pointer;
+    width: 10%;
+}
+
+.example:hover {
+    background-color: #e0e0e0;
+    color: black;
+}
+
+@keyframes wiggle {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    15% {
+        transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -4deg);
+    }
+
+    30% {
+        transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+    }
+
+    45% {
+        transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg);
+    }
+
+    60% {
+        transform: translate3d(5%, 0, 0) rotate3d(0, 0, 1, 1deg);
+    }
+
+    75% {
+        transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.wiggle {
+    animation-name: wiggle;
+    -webkit-animation:wiggle 1s ease-in-out forwards;
+    -moz-animation:wiggle 1s ease-in-out 1;
+    animation:wiggle 1s ease-in-out forwards;
+
+}
+
+
+.footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #2B489E;
+    color: white;
+    text-align: center;
+}
