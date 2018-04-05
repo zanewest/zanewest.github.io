@@ -144,7 +144,7 @@ tr:nth-child(even){background-color: #fcfcfc
 }
 
 tr:hover {
-    background-color: #b9f6d2;
+    background-color: #e6ffff;
     border-color: black;
 }
 
@@ -154,8 +154,8 @@ td {
 }
 
 td:hover {
-    background-color: #a7eef6;
-    border-color: #a7eef6;
+    background-color: #b3e5fc;
+    border-color: #b3e5fc;
 }
 
 
@@ -163,7 +163,7 @@ td:hover {
 [class="24-hours-change"]{
        -webkit-transition: color 2s ease-in-out; /* Safari */
        transition: color 2s ease-in-out;
-   }
+}
 
 
 table {
@@ -175,6 +175,7 @@ input[type="text"] {
     padding: 10px;
     border: none;
     transition: 500ms ease-in-out;
+    -webkit-transition: 500ms ease-in-out;
     background-color: white;
     outline: #b6ffad
 }
@@ -194,7 +195,7 @@ input[type=text], select {
 
 input#userSym:focus {
     width: 10%;
-    background-color: #AFFF9D;
+    background-color: #e6ffff;
 }
 
 input[type=button] {
@@ -209,9 +210,13 @@ input[type=button] {
 }
 
 input[type=button]:hover {
-    background-color: #AFFF9D;
+    background-color: #e6ffff;
     cursor: pointer;
     width: 10%;
+}
+
+.invalid {
+    background-color: #ff7961;
 }
 
 .example:hover {

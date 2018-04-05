@@ -15,7 +15,6 @@ function setup() {
     AJAX.onload = function () {	//This function is where we can manipulate the data
         //console.log(AJAX.responseText); //This will output the data to the console.
         cryptoData = JSON.parse(AJAX.responseText); // This stores our requested data in JSON format.
-        console.log(cryptoData);
         populateData(cryptoData);
     };
 
@@ -23,24 +22,35 @@ function setup() {
 
     AJAX.send(); //This performs the commands
 
-    //set colors for pos and neg values
-    //get an array of all day change values
-    var dayChngValues = document.getElementsByClassName("24-hours-change");
 
-    //index the array
-    for (var i = 0; i < 11; i++) {
-//if the value is pos, make it green
-        if (dayChngValues[i].innerHTML > 0){
-            dayChngValues[i].style.color = 'green';
-        } else{
-            dayChngValues[i].style.color = 'red';
-        }
-    }
+
 
     //animate header
     var header = document.getElementById("mainHeader");
     header.classList.toggle("bounceDown");
 
+    //color pos numbers green and neg numbers red
+    colorize();
+}
+
+//color pos numbers green and neg numbers red
+function colorize() {
+    //set colors for pos and neg values
+    //get an array of all day change values
+    var dayChngValues = document.getElementsByClassName("24-hours-change");
+
+    console.log(dayChngValues[0].innerHTML);
+
+    //index the array
+    for (var i = 0; i < 11; i++) {
+//if the value is pos, make it green
+
+        if (parseFloat(dayChngValues[i].innerHTML) > 0) {
+            dayChngValues[i].style.color = 'green';
+        } else {
+            dayChngValues[i].style.color = 'red';
+        }
+    }
 }
 
 
@@ -68,7 +78,7 @@ function userCall(){
 
         if(userCryptoData.Response != "Error"){
 
-            userPrice.innerHTML = "$" + userCryptoData["RAW"][sym]["USD"]["PRICE"].toFixed(2);
+            userPrice.innerHTML = "$" + parseFloat(userCryptoData["RAW"][sym]["USD"]["PRICE"]).toFixed(2);
 
             userMktCap.innerHTML = "$" + userCryptoData["RAW"][sym]["USD"]["MKTCAP"].toLocaleString(undefined, {maximumFractionDigits: 0});
 
@@ -87,6 +97,9 @@ function userCall(){
 
             var userSym = document.getElementById("userSym");
             userSym.classList.toggle("wiggle");
+            console.log("Turn red");
+            userSym.classList.add("invalid");
+            userSym.style.border = "1px solid red";
         }
 
 
@@ -99,54 +112,24 @@ function userCall(){
     //local storage
     var userSymVal = document.getElementById("userSym").value;
 
-    localStorage.setItem('cryptoSearch', JSON.stringify(userSymVal));
+    if (userSymVal != ''){
+        localStorage.setItem('cryptoSearch', JSON.stringify(userSymVal));
+    }
+
 }
 
 function userClear(){
-    var userSym = document.getElementById('userSymDiv');
-    userSym.style.visibility = "hidden";
-    userSym.style.opacity = "0";
-    userSym.style.height = "0px";
+    var userSymDiv = document.getElementById('userSymDiv');
+    var userSym = document.getElementById("userSym");
+    userSymDiv.style.visibility = "hidden";
+    userSymDiv.style.opacity = "0";
+    userSymDiv.style.height = "0px";
     document.getElementById('userSym').value= '';
     window.localStorage.clear();
+    userSym.style.border = "0";
+
 
 }
-
-
-
-function DOMManip() {
-    var heading = document.getElementById("body-content");
-    var headingtext = document.createTextNode("Group 1's First Meeting");
-
-    heading.style.fontSize = "25";
-    heading.style.textAlign = "center";
-    heading.appendChild(headingtext);
-
-    var showVideoBtn = document.createElement("button");
-
-    showVideoBtn.setAttribute("id", "showVideoBtn");
-    showVideoBtn.setAttribute("type", "button");
-    showVideoBtn.setAttribute("onclick", "showVideo()");
-
-    showVideoBtn.style.display = "block";
-    showVideoBtn.style.margin = "0 auto";
-    showVideoBtn.style.justifyContent = "center";
-
-    var buttonLabel = document.createTextNode("Show Video");
-    showVideoBtn.appendChild(buttonLabel);
-    heading.appendChild(showVideoBtn);
-
-    var introduction = document.createElement("p");
-    introduction.setAttribute("id", "body-content");
-
-    var introText = document.createTextNode("Our first meeting established group rules and allowed us to begin coordinating our presentations.")
-    introduction.style.fontSize = "17";
-
-    introduction.appendChild(introText);
-    heading.insertBefore(introduction, showVideoBtn);
-}
-
-
 
 function populateData(cryptoData) {
 
@@ -238,8 +221,6 @@ function populateData(cryptoData) {
 
     //set xrp 24hr change
     var xrpDayChngVal = cryptoData["RAW"]["XRP"]["USD"]["CHANGEPCT24HOUR"];
-
-    console.log(xrpDayChngVal);
 
     xrpDayChng.innerHTML = xrpDayChngVal.toFixed(2) + "%";
 
