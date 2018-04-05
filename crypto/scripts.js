@@ -17,19 +17,14 @@ function setup() {
         cryptoData = JSON.parse(AJAX.responseText); // This stores our requested data in JSON format.
         populateData(cryptoData);
     };
-
-
-
     AJAX.send(); //This performs the commands
-
-
-
 
     //animate header
     var header = document.getElementById("mainHeader");
     header.classList.toggle("bounceDown");
 
     //color pos numbers green and neg numbers red
+    //This function is called to early right now. TODO: maybe it needs a callback?
     colorize();
 }
 
@@ -39,16 +34,13 @@ function colorize() {
     //get an array of all day change values
     var dayChngValues = document.getElementsByClassName("24-hours-change");
 
-    console.log(dayChngValues[0].innerHTML);
-
     //index the array
     for (var i = 0; i < 11; i++) {
 //if the value is pos, make it green
-
         if (parseFloat(dayChngValues[i].innerHTML) > 0) {
             dayChngValues[i].style.color = 'green';
         } else {
-            dayChngValues[i].style.color = 'red';
+            dayChngValues[i].style.color = 'blue';
         }
     }
 }
@@ -58,24 +50,21 @@ function colorize() {
 function userCall(){
     var userCryptoData;
 
+//API call variables
     var api = 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=';
     var sym = document.getElementById('userSym').value;
     sym = sym.toUpperCase();
     var curr = '&tsyms=USD';
 
+    //build the API call with dynamic variables
     var url = api + sym + curr;
-
-    console.log(sym);
-
-
 
     var AJAX = new XMLHttpRequest();  //Initializes an instance of XMLHttpRequest
     AJAX.open('GET', url); //Loads data from an external JSON file.
     AJAX.onload = function () {	//This function is where we can manipulate the data
-        //console.log(AJAX.responseText); //This will output the data to the console.
         userCryptoData = JSON.parse(AJAX.responseText); // This stores our requested data in JSON format.
-        console.log(userCryptoData);
 
+        //display the user's desired crypto data
         if(userCryptoData.Response != "Error"){
 
             userPrice.innerHTML = "$" + parseFloat(userCryptoData["RAW"][sym]["USD"]["PRICE"]).toFixed(2);
@@ -85,8 +74,8 @@ function userCall(){
             userDayChng.innerHTML = userCryptoData["RAW"][sym]["USD"]["CHANGEPCT24HOUR"].toFixed(2) + "%";
             userCCName.innerHTML = sym;
 
-
             var userSym = document.getElementById('userSymDiv');
+
             userSym.style.visibility = "visible";
             userSym.style.opacity = "1";
             userSym.style.height = "80px";
@@ -96,39 +85,89 @@ function userCall(){
             console.log("Failed API Call, invalid crypto symbol")
 
             var userSym = document.getElementById("userSym");
+
+            //Use transition and animation to alert the user of their invalid entry
             userSym.classList.toggle("wiggle");
-            console.log("Turn red");
-            userSym.classList.add("invalid");
             userSym.style.border = "1px solid red";
         }
 
 
     };
 
-
     AJAX.send(); //This performs the commands
-
 
     //local storage
     var userSymVal = document.getElementById("userSym").value;
 
+    //did the user enter a symbol? then enter it to local storage.
     if (userSymVal != ''){
         localStorage.setItem('cryptoSearch', JSON.stringify(userSymVal));
     }
-
 }
 
+//Clear the user entered crypto symbol and data
 function userClear(){
     var userSymDiv = document.getElementById('userSymDiv');
     var userSym = document.getElementById("userSym");
+
     userSymDiv.style.visibility = "hidden";
     userSymDiv.style.opacity = "0";
     userSymDiv.style.height = "0px";
+
     document.getElementById('userSym').value= '';
+
     window.localStorage.clear();
+
     userSym.style.border = "0";
+}
+
+//open the sidebar
+function sidebarOpen() {
+    document.getElementById("sidebar").style.display = "block";
+    document.getElementById("overlay").style.display = "block";
+}
+
+//close the sidebar
+function sidebarClose() {
+    document.getElementById("sidebar").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+}
+
+//Draw the about page via sidebar
+function drawAbout() {
+    //animate header
+    var header = document.getElementById("mainHeader");
+    header.classList.toggle("bounceDown");
+
+    var bodyContent = document.getElementById("bodyContent");
+
+    var bodyContentAbout = document.getElementById("bodyContentAbout");
+
+    var stockImg = document.getElementById("stockImg");
+
+    bodyContent.style.display = "none";
+    bodyContentAbout.style.display = "block";
+
+    stockImg.classList.toggle("stockAni");
+
+    sidebarClose();
+}
 
 
+//Draw the main index page via sidebar
+function drawIndex() {
+    //animate header
+    var header = document.getElementById("mainHeader");
+    header.classList.toggle("bounceDown");
+
+    var bodyContent = document.getElementById("bodyContent");
+
+    var bodyContentAbout = document.getElementById("bodyContentAbout");
+
+    bodyContentAbout.style.display = "none";
+    bodyContent.style.display = "block"
+
+    sidebarClose();
 }
 
 function populateData(cryptoData) {

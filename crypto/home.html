@@ -14,11 +14,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crypto Index</title>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css
+">
     <script src="scripts.js">
     </script>
 </head>
 <body onload="setup()">
+
+<!-- Sidebar -->
+<div class="sidebar bar-block animate-left" style="display:none;z-index:5" id="sidebar">
+
+    <a href="#" onclick="drawIndex();" class="sidebarLink button"><strong>Index</strong></a>
+    <a href="#" onclick="drawAbout();" class="sidebarLink button"><strong>About the Index</strong></a>
+    <button class="sidebarLink button xlarge" onclick="sidebarClose()">&#8606;</button>
+</div>
+
+<!-- Page Content -->
+<div class="overlay animate-opacity" onclick="sidebarClose()" style="cursor:pointer" id="overlay"></div>
+
+<div>
+    <button class="button xlarge" onclick="sidebarOpen()">&#9776;</button>
+
+</div>
+
+
+<!-- ---------------------------------- -->
 
 <h1 id="mainHeader">Crypto Index</h1>
 <br>
@@ -329,6 +355,16 @@
             </table>
         </div></div>
 
+
+</div>
+
+<div id="bodyContentAbout">
+    Crypto Index is a cryptocurrency market index based on the movement of the top cryptocurrencies.
+    Similar in structure to the S&P 500, Crypto Index assigns weights to leading cryptocurrencies and averages their daily performance.
+    Crypto Index can be used as a bellwether of cryptocurrency growth.<br/>
+    <br/>
+
+    <img src="resources/stocks.jpg" id="stockImg" alt="Stocks" class="responsive">
 
 </div>
 
